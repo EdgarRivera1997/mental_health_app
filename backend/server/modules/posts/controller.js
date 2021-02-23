@@ -6,7 +6,15 @@ export const createPost = async (req, res) => {
 
     try {
         return res.status(201).json({ post: await newPost.save() });
-    } catch (e) {
-        return res.status(e.status).json({ error: true, message: 'Error with Post'})
+    } catch {
+        return res.status(404).json({ error: true, message: 'Error with Post'})
+    }
+}
+
+export const getAllPosts = async (req, res) => {
+    try {
+        return res.status(200).json({ post : await Post.find({} )});
+    } catch {
+        return res.status(404).json({ error: true, message: 'Error with Post'});
     }
 }

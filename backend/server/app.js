@@ -1,7 +1,7 @@
 import express from 'express';
 import dbConfig from './config/db.js';
 import middlewareConfig from './config/middlewares.js';
-//import { PostRoutes } from './modules';
+import { PostRoutes } from './modules';
 
 const app = express();
 
@@ -11,7 +11,7 @@ dbConfig();
 //Middlewares
 middlewareConfig(app);
 
-//app.use('/api', [PostRoutes]);
+app.use('/api', [PostRoutes]);
 
 const PORT = process.env.PORT || 3000;
 

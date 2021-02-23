@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
+const morgan = require('morgan');
 
 export default app => {
    app.use(bodyParser.json());
