@@ -5,7 +5,7 @@ import { View } from '../components/Themed';
 import Feed from "../components/Feed";
 import NewPostButton from "../components/NewPostButton";
 
-export default function HomeScreen() {
+export default function FeedScreen() {
   return (
     <View style={styles.container}>
       <Feed />

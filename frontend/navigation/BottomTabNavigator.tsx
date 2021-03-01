@@ -5,9 +5,9 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import HomeScreen from '../screens/HomeScreen';
+import FeedScreen from '../screens/FeedScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, HomeNavigatorParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, FeedNavigatorParamList, TabTwoParamList } from '../types';
 import ProfilePicture from "../components/ProfilePicture";
 import {StyleSheet, Text, View} from "react-native";
 
@@ -18,13 +18,13 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Post"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Home"
+        name="Post"
         component={HomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="md-home" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="post" color={color} size={30}/>,
         }}
       />
       <BottomTab.Screen
@@ -46,14 +46,14 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<HomeNavigatorParamList>();
+const TabOneStack = createStackNavigator<FeedNavigatorParamList>();
 
 function HomeNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="FeedScreen"
+        component={FeedScreen}
         options={{
             headerRightContainerStyle: {
                 marginRight: 15,
@@ -81,7 +81,7 @@ function HomeNavigator() {
       />
     </TabOneStack.Navigator>
   );
-};
+}
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 

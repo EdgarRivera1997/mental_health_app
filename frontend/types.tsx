@@ -7,12 +7,12 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  Home: undefined;
+  Post: undefined;
   TabTwo: undefined;
 };
 
-export type HomeNavigatorParamList = {
-  HomeScreen: undefined;
+export type FeedNavigatorParamList = {
+  FeedScreen: undefined;
 };
 
 export type TabTwoParamList = {
