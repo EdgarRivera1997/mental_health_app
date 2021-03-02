@@ -7,7 +7,8 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import FeedScreen from '../screens/FeedScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, FeedNavigatorParamList, TabTwoParamList } from '../types';
+import ChatScreen from "../screens/ChatScreen";
+import {BottomTabParamList, ChatNavigatorParamList, FeedNavigatorParamList, TabTwoParamList} from '../types';
 import ProfilePicture from "../components/ProfilePicture";
 import {StyleSheet, Text, View} from "react-native";
 
@@ -34,6 +35,13 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
+        <BottomTab.Screen
+            name="Chat"
+            component={ChatNavigator}
+            options={{
+                tabBarIcon: ({ color }) => <TabBarIcon name="chatbox" color={color} />,
+            }}
+        />
     </BottomTab.Navigator>
   );
 }
@@ -95,6 +103,43 @@ function TabTwoNavigator() {
       />
     </TabTwoStack.Navigator>
   );
+}
+
+const ChatStack = createStackNavigator<ChatNavigatorParamList>()
+
+function ChatNavigator() {
+    return (
+        <ChatStack.Navigator>
+            <ChatStack.Screen
+                name="ChatScreen"
+                component={ChatScreen}
+                options={{
+                    headerRightContainerStyle: {
+                        marginRight: 15,
+                    },
+
+                    headerLeftContainerStyle: {
+                        marginLeft: 15,
+                    },
+
+                    headerTitle: () => (
+                        <MaterialCommunityIcons name={'brain'} size={30} color={Colors.light.tint}/>
+                    ),
+
+                    headerRight: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.containerHeader}>Feel Good</Text>
+                        </View>
+                    ),
+
+                    headerLeft: () => (
+                        <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                    )
+
+                }}
+            />
+        </ChatStack.Navigator>
+    );
 }
 
 const styles = StyleSheet.create({

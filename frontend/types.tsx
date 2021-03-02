@@ -9,6 +9,7 @@ export type RootStackParamList = {
 export type BottomTabParamList = {
   Post: undefined;
   TabTwo: undefined;
+  Chat: undefined;
 };
 
 export type FeedNavigatorParamList = {
@@ -42,4 +43,15 @@ export type CommentType = {
   createdAt: string,
   user: UserType,
   content: string,
+}
+
+export type Message = {
+
+}
+
+export type ChatRoom = {
+  id: string,
+  users: [UserType],
+  lastMessage: Message,
+
 }
