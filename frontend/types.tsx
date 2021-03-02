@@ -16,13 +16,17 @@ export type FeedNavigatorParamList = {
   FeedScreen: undefined;
 };
 
+export type ChatNavigatorParamList = {
+  ChatScreen: undefined;
+};
+
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
 export type UserType = {
   id: string,
-  name: string,
+  name?: string,
   username: string,
   image?: string,
 }
@@ -46,12 +50,14 @@ export type CommentType = {
 }
 
 export type Message = {
-
+  id: string,
+  content: string,
+  createdAt: string,
 }
 
 export type ChatRoom = {
   id: string,
-  users: [UserType],
+  users: UserType[],
   lastMessage: Message,
 
 }
