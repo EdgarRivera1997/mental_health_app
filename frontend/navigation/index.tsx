@@ -10,6 +10,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import NewPostScreen from "../screens/NewPostScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import CommentListScreen from "../screens/CommentListScreen";
+import ChatRoomScreen from "../screens/ChatRoomScreen";
 
 
 // If you are not familiar with React Navigation, we recommend going through the
@@ -34,7 +35,8 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="NewPost" component={NewPostScreen} />
       <Stack.Screen name="NewComment" component={NewCommentScreen} />
-      <Stack.Screen name={"CommentList"} component={CommentListScreen} />
+      <Stack.Screen name="CommentList" component={CommentListScreen} />
+      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

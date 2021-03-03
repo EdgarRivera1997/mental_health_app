@@ -15,11 +15,11 @@ const Footer = ({post}: FooterProps) => {
     const navigation = useNavigation();
 
     const onCommentButton = () => {
-        navigation.navigate('NewComment');
+        navigation.navigate('NewComment', {id: post.id});
     }
 
     const onNumberOfComments = () => {
-        navigation.navigate('CommentList');
+        navigation.navigate('CommentList', {id: post.id});
     }
 
     return (

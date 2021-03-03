@@ -3,6 +3,7 @@ export type RootStackParamList = {
   NewPost: undefined;
   NewComment: undefined;
   CommentList: undefined;
+  ChatRoom: undefined;
   NotFound: undefined;
 };
 

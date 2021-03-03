@@ -12,13 +12,18 @@ import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import {useNavigation} from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
 
 export default function NewCommentScreen() {
     let {post} = useState("");
     const navigation = useNavigation();
+    const route = useRoute();
+
+    console.log(route.params)
 
     const onPostButton = () => {
         console.log(`Posting comment: ${post}`);
+        onCloseButton();
     };
 
     const onCloseButton = () => {

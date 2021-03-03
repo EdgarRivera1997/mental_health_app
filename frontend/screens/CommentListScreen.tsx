@@ -3,12 +3,16 @@ import {SafeAreaView, StyleSheet, Text} from 'react-native';
 
 import { View } from '../components/Themed';
 import CommentList from "../components/CommentList";
-import {AntDesign} from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
-import {useNavigation} from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
 
 export default function CommentListScreen() {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  console.log(route.params)
 
   const onCloseButton = () => {
     navigation.navigate('Root');
