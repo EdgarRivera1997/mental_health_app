@@ -27,7 +27,7 @@ export type TabTwoParamList = {
 
 export type UserType = {
   id: string,
-  name?: string,
+  name: string,
   username: string,
   image?: string,
 }
@@ -54,6 +54,7 @@ export type Message = {
   id: string,
   content: string,
   createdAt: string,
+  user: UserType,
 }
 
 export type ChatRoom = {

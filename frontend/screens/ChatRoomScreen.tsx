@@ -1,10 +1,13 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet, Text, ImageBackground} from "react-native";
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {View} from "../components/Themed";
 import {AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
+import chatRoomData from '../data/Chats';
+import ChatMessage from '../components/ChatMessage'
+import BG from '../assets/images/chatBackground.jpg';
 
 export default function ChatRoomScreen() {
     const navigation = useNavigation();
@@ -28,6 +31,15 @@ export default function ChatRoomScreen() {
                     <Text style={styles.headerText}>Chat Room</Text>
                 </View>
             </View>
+            <ImageBackground style={styles.background} source={BG} >
+                <FlatList
+                    data={chatRoomData.messages}
+                    renderItem={({item}) => <ChatMessage message={item}/>}
+                    inverted
+                    keyExtractor={(item) => item.id}
+                />
+            </ImageBackground>
+
         </SafeAreaView>
     );
 }
@@ -68,5 +80,12 @@ const styles = StyleSheet.create({
         width: '80%',
         justifyContent: "space-between",
         paddingHorizontal: 10,
+    },
+    background: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
+        overflow: "hidden"
     },
 });

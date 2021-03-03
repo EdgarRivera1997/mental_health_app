@@ -10,7 +10,8 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import ChatScreen from "../screens/ChatScreen";
 import {BottomTabParamList, ChatNavigatorParamList, FeedNavigatorParamList, TabTwoParamList} from '../types';
 import ProfilePicture from "../components/ProfilePicture";
-import {StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, Text, View} from "react-native";
+import logo from '../assets/images/mentalHealthLogo.jpg';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
