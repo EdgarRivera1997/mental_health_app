@@ -8,6 +8,7 @@ import ProfilePicture from "../components/ProfilePicture";
 import chatRoomData from '../data/Chats';
 import ChatMessage from '../components/ChatMessage'
 import BG from '../assets/images/chatBackground.jpg';
+import InputBox from "../components/InputBox";
 
 export default function ChatRoomScreen() {
     const navigation = useNavigation();
@@ -20,7 +21,7 @@ export default function ChatRoomScreen() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.headerContainer}>
                 <View style={styles.leftContainer}>
                     <AntDesign name={'close'} size={30} color={Colors.light.tint} onPress={onCloseButton}/>
@@ -38,9 +39,9 @@ export default function ChatRoomScreen() {
                     inverted
                     keyExtractor={(item) => item.id}
                 />
+                <InputBox />
             </ImageBackground>
-
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'grey',
         borderBottomWidth: 0.5,
         alignItems: "center",
+        marginTop: 30,
     },
     headerText: {
         fontWeight: "bold",

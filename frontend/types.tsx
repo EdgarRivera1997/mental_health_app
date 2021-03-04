@@ -4,6 +4,7 @@ export type RootStackParamList = {
   NewComment: undefined;
   CommentList: undefined;
   ChatRoom: undefined;
+  ChatCategory: undefined
   NotFound: undefined;
 };
 

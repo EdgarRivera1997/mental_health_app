@@ -8,7 +8,7 @@ import ChatListItem from "../components/ChatListItem";
 import chatRooms from "../data/ChatRooms";
 import NewMessageButton from "../components/NewMessageButton";
 
-export default function ChatScreen() {
+export default function ChatCategoriesScreen() {
   return (
     <View style={styles.container}>
       <FlatList
