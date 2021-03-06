@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
     container: {
@@ -7,12 +8,15 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-between',
         padding: 10,
+        borderBottomWidth: 0.5,
     },
     leftContainer: {
         flexDirection: "row",
     },
     midContainer: {
         justifyContent: "space-around",
+        //backgroundColor: 'red',
+        marginHorizontal: 5,
     },
     avatar: {
         width: 60,
@@ -20,16 +24,12 @@ const styles = StyleSheet.create({
         marginRight: 15,
         borderRadius: 50,
     },
-    username: {
+    groupName: {
         fontWeight: "bold",
+        color: Colors.light.tint,
     },
-    lastMessage: {
+    description: {
         fontSize: 16,
-        color: 'grey',
-        width: 220,
-    },
-    time: {
-        fontSize: 14,
         color: 'grey',
     },
 })

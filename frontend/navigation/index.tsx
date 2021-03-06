@@ -10,6 +10,11 @@ import LinkingConfiguration from './LinkingConfiguration';
 import NewPostScreen from "../screens/NewPostScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import CommentListScreen from "../screens/CommentListScreen";
+import ChatRoomScreen from "../screens/ChatRoomScreen";
+import ChatCategoriesScreen from "../screens/ChatCategoriesScreen";
+import GroupChatScreen from "../screens/GroupChatScreen";
+import GroupChatRoomScreen from "../screens/GroupChatRoomScreen";
+import ProfileSettingsScreen from "../screens/ProfileSettingsScreen";
 
 
 // If you are not familiar with React Navigation, we recommend going through the
@@ -34,7 +39,12 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="NewPost" component={NewPostScreen} />
       <Stack.Screen name="NewComment" component={NewCommentScreen} />
-      <Stack.Screen name={"CommentList"} component={CommentListScreen} />
+      <Stack.Screen name="CommentList" component={CommentListScreen} />
+      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
+      <Stack.Screen name="ChatCategory" component={ChatCategoriesScreen} />
+      <Stack.Screen name="GroupChatList" component={GroupChatScreen} />
+      <Stack.Screen name="GroupChatRoom" component={GroupChatRoomScreen} />
+      <Stack.Screen name="ProfileSettings" component={ProfileSettingsScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

@@ -3,6 +3,11 @@ export type RootStackParamList = {
   NewPost: undefined;
   NewComment: undefined;
   CommentList: undefined;
+  ChatRoom: undefined;
+  ChatCategory: undefined;
+  GroupChatList: undefined;
+  GroupChatRoom: undefined;
+  ProfileSettings: undefined;
   NotFound: undefined;
 };
 
@@ -16,6 +21,10 @@ export type FeedNavigatorParamList = {
   FeedScreen: undefined;
 };
 
+export type ChatNavigatorParamList = {
+  ChatScreen: undefined;
+};
+
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
@@ -25,6 +34,7 @@ export type UserType = {
   name: string,
   username: string,
   image?: string,
+  status?: string,
 }
 
 export type PostType = {
@@ -34,8 +44,6 @@ export type PostType = {
   content: string,
   image?: string,
   numberOfComments?: number,
-  numberOfReposts?: number,
-  numberOfLikes?: number,
 }
 
 export type CommentType = {
@@ -46,12 +54,30 @@ export type CommentType = {
 }
 
 export type Message = {
-
+  id: string,
+  content: string,
+  createdAt: string,
+  user: UserType,
 }
 
 export type ChatRoom = {
   id: string,
-  users: [UserType],
+  users: UserType[],
   lastMessage: Message,
+}
 
+export type GroupChatRoom = {
+  id: string,
+  name: string,
+  users: UserType[],
+  lastMessage: Message,
+  description: string,
+  image: string,
+}
+
+export type Category = {
+  id: string,
+  name: string,
+  groupChats?: GroupChatRoom[],
+  posts?: PostType[],
 }

@@ -21,6 +21,7 @@ export default function NewPostScreen() {
     const onPostButton = () => {
         console.log(`Post: ${post} 
             Image: ${imageUrl}`);
+        onCloseButton();
     };
 
     const onCloseButton = () => {
@@ -48,7 +49,7 @@ export default function NewPostScreen() {
                     />
                     <TextInput
                         value={imageUrl}
-                        onChangeText={value => imageUrl =value}
+                        onChangeText={value => imageUrl = value}
                         style={styles.imageInput}
                         placeholder={'Image url (optional)'}
                     />
