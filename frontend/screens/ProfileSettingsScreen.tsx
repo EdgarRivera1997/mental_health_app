@@ -16,7 +16,8 @@ export default function ProfileSettingsScreen() {
     }
 
     const onLogoutButton = () => {
-        console.warn('Logout is pressed');
+        //console.warn('Logout is pressed');
+        navigation.navigate("dummy");
         //send to logout screen
     }
 
