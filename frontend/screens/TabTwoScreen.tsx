@@ -6,8 +6,6 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View,  } from '../components/Themed';
 
-import Axios from 'axios';
-import CSS from 'csstype';
 
 import styled from "styled-components";
 
