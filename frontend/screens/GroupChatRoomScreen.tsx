@@ -5,12 +5,12 @@ import {View} from "../components/Themed";
 import {AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
-import chatRoomData from '../data/Chats';
+import chatRoomData from '../data/GroupChatMessages';
 import ChatMessage from '../components/ChatMessage'
 import BG from '../assets/images/chatBackground.jpg';
 import InputBox from "../components/InputBox";
 
-export default function ChatRoomScreen() {
+export default function GroupChatRoomScreen() {
     const navigation = useNavigation();
     const route = useRoute();
 
@@ -28,8 +28,8 @@ export default function ChatRoomScreen() {
                         <ProfilePicture image={route.params.image} size={40}/>
                     </View>
                     <View style={styles.rightContainer}>
-                        <Text style={styles.headerUsername}>{route.params.username}</Text>
-                        <Text style={styles.headerText}>Chat</Text>
+                        <Text style={styles.headerUsername}>{route.params.name}</Text>
+                        <Text style={styles.headerText}>Group Chat</Text>
                     </View>
                 </View>
                 <KeyboardAvoidingView

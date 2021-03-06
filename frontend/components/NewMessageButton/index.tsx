@@ -1,16 +1,25 @@
 import React from 'react';
-import { View } from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import { MaterialCommunityIcons} from "@expo/vector-icons";
 import styles from "./styles";
+import {useNavigation} from "@react-navigation/native";
 
 const NewMessageButton = () => {
+    const navigation = useNavigation();
+
+    const onPress = () => {
+        navigation.navigate('ChatCategory');
+    }
+
     return (
         <View style={styles.container}>
-            <MaterialCommunityIcons
-                name={'message-reply-text'}
-                size={30}
-                color={'white'}
-            />
+            <TouchableOpacity onPress={onPress}>
+                <MaterialCommunityIcons
+                    name={'message-reply-text'}
+                    size={30}
+                    color={'white'}
+                />
+            </TouchableOpacity>
         </View>
     )
 }

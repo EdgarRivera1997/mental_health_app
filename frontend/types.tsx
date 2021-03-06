@@ -4,7 +4,10 @@ export type RootStackParamList = {
   NewComment: undefined;
   CommentList: undefined;
   ChatRoom: undefined;
-  ChatCategory: undefined
+  ChatCategory: undefined;
+  GroupChatList: undefined;
+  GroupChatRoom: undefined;
+  ProfileSettings: undefined;
   NotFound: undefined;
 };
 
@@ -31,6 +34,7 @@ export type UserType = {
   name: string,
   username: string,
   image?: string,
+  status?: string,
 }
 
 export type PostType = {
@@ -40,8 +44,6 @@ export type PostType = {
   content: string,
   image?: string,
   numberOfComments?: number,
-  numberOfReposts?: number,
-  numberOfLikes?: number,
 }
 
 export type CommentType = {
@@ -62,5 +64,20 @@ export type ChatRoom = {
   id: string,
   users: UserType[],
   lastMessage: Message,
+}
 
+export type GroupChatRoom = {
+  id: string,
+  name: string,
+  users: UserType[],
+  lastMessage: Message,
+  description: string,
+  image: string,
+}
+
+export type Category = {
+  id: string,
+  name: string,
+  groupChats?: GroupChatRoom[],
+  posts?: PostType[],
 }

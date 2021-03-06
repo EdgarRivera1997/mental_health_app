@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {
+    KeyboardAvoidingView,
+    TextInput,
+    TouchableOpacity,
+    View
+} from "react-native";
 import styles from "./styles";
 import {Entypo, FontAwesome5, Fontisto, MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons";
 
@@ -7,15 +12,15 @@ const InputBox = () => {
     let [message, setMessage] = useState('');
 
     const onMicrophonePress = () => {
-        console.warn('Microphone pressed')
+        console.warn('Microphone pressed');
     }
 
     const onSendPress = () => {
-        console.warn(`Sending: ${message}`)
+        console.warn(`Sending: ${message}`);
 
         //send the message to the backend
 
-        setMessage('')
+        setMessage('');
     }
 
     const onPress = () => {

@@ -10,7 +10,8 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import ChatScreen from "../screens/ChatScreen";
 import {BottomTabParamList, ChatNavigatorParamList, FeedNavigatorParamList, TabTwoParamList} from '../types';
 import ProfilePicture from "../components/ProfilePicture";
-import { StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -57,6 +58,12 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 const TabOneStack = createStackNavigator<FeedNavigatorParamList>();
 
 function HomeNavigator() {
+    const navigation = useNavigation();
+
+    const onProfilePress = () => {
+        navigation.navigate('ProfileSettings');
+    }
+
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
@@ -82,7 +89,9 @@ function HomeNavigator() {
             ),
 
             headerLeft: () => (
-                <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                <TouchableOpacity onPress={onProfilePress}>
+                    <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                </TouchableOpacity>
             )
 
         }}
@@ -108,6 +117,12 @@ function TabTwoNavigator() {
 const ChatStack = createStackNavigator<ChatNavigatorParamList>()
 
 function ChatNavigator() {
+    const navigation = useNavigation();
+
+    const onProfilePress = () => {
+        navigation.navigate('ProfileSettings');
+    }
+
     return (
         <ChatStack.Navigator>
             <ChatStack.Screen
@@ -133,7 +148,9 @@ function ChatNavigator() {
                     ),
 
                     headerLeft: () => (
-                        <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                        <TouchableOpacity onPress={onProfilePress}>
+                            <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                        </TouchableOpacity>
                     )
 
                 }}
