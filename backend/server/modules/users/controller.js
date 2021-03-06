@@ -9,24 +9,28 @@ export const createUser = async (req, res) => {
         if (doc) res.send("Email Already Exists");
         if (!doc) {
 
+            const { firstName, lastName, username, email, phoneNumber, physicalDirection, age, gender } = req.body;
             const saltPassword = await Bcrypt.genSalt(10)
             const securePassword = await Bcrypt.hash(req.body.password, saltPassword)
 
             const newUser = new User({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                username: req.body.username,
-                email: req.body.email,
+                firstName,
+                lastName,
+                username,
+                email,
                 password: securePassword,
-                phoneNumber: req.body.phoneNumber,
-                physicalDirection: req.body.physicalDirection,
-                age: req.body.age,
-                gender: req.body.gender
+                phoneNumber,
+                physicalDirection,
+                age,
+                gender
             })
 
             try {
+                //await newUser.save();
+                //res.redirect(`/login`);
                 return res.status(201).json({ user: await newUser.save() });
             } catch {
+                //res.redirect('/signup')
                 return res.status(404).json({ error: true, message: 'Error with user'})
             }
         }
@@ -41,10 +45,17 @@ export const loginUser = async (req, res, next) => {
             req.logIn(user, (err) => {
                 if (err) throw err;
                 res.send("Successfully Authenticated");
-                console.log(req.user);
+                console.log(req.user.username);
+                //res.redirect('/')  redirect to home page
             });
         }
     })(req, res, next);
+}
+
+export const logoutUser = async (req, res) => {
+    req.logout();
+    res.send("You are log out");
+    //res.redirect('/login');
 }
 
 export const getUser = async (req, res) => {
@@ -53,8 +64,35 @@ export const getUser = async (req, res) => {
 
 export const getAllUsers = async (req, res) => {
     try {
+        // return User.find({}).populate('post').exec((err, data) => {
+        //     if (err) throw err;
+        //     console.log(data);
+        // })
         return res.status(200).json({ post : await User.find({} )});
     } catch {
         return res.status(404).json({ error: true, message: 'Error with User'});
+    }
+}
+
+export const updateUser = async (req, res) => {
+    if (req.user){
+        let user
+
+        user = await User.findById(req.params.id);
+
+        user.firstName = req.body.firstName
+        user.lastName = req.body.lastName
+        user.username = req.body.username
+        user.phoneNumber = req.body.phoneNumber
+        user.physicalDirection = req.body.physicalDirection
+        user.age = req.body.age
+        user.gender = req.body.gender
+
+        //await user.save();
+        return res.status(200).json({ post : await user.save()});
+        //res.redirect()  to some path
+
+    } else {
+        return res.status(404).json({ error: true, message: 'Error with updating user'});
     }
 }
