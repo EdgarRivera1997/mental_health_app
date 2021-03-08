@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import {StyleSheet, TextInput, Dimensions, KeyboardAvoidingView, Image} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { Text, View , } from '../components/Themed';
+const {width: WIDTH} = Dimensions.get('window')
 
 export default function TabTwoScreen() {
   return (
@@ -10,7 +11,61 @@ export default function TabTwoScreen() {
       <Text style={styles.title}>Tab Two</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+
+      <KeyboardAvoidingView
+          style={styles.keyboard}
+          behavior={'padding'}
+      >
+
+      <View>
+        <Text style={styles.headings}>SIGN UP</Text>
+
+        <TextInput style={styles.customInput}  placeholder='Email'
+                   placeholderTextColor='rgba(255,255,255,0.7'
+                   underlineColorAndroid='transparent'>
+
+        </TextInput>
+        <TextInput style={styles.customInput} placeholder={'Password'} secureTextEntry={true} placeholderTextColor='rgba(255,255,255,0.7' underlineColorAndroid='transparent' >
+
+        </TextInput>
+        <View >
+          <Text style={styles.redButton} onPress={()=>null}>SIGN UP</Text>
+        </View>
+
+      </View>
+
+      <View>
+        <Text style={styles.headings}>LOGIN</Text>
+        <TextInput style={styles.customInput}  placeholder='Email/Username'
+        placeholderTextColor='rgba(255,255,255,0.7'
+        underlineColorAndroid='transparent'>
+
+        </TextInput>
+        <TextInput style={styles.customInput}
+        placeholder={'Password'} secureTextEntry={true} placeholderTextColor='rgba(255,255,255,0.7' underlineColorAndroid='transparent'
+        >
+
+        </TextInput>
+        <View>
+          <Text style={styles.redButton} onPress={()=>null} >LOGIN</Text>
+        </View>
+
+
+      </View>
+
+
+      </KeyboardAvoidingView>
+      <View style={styles.container} >
+        <Image source={require('../assets/images/mentalHealthLogo.jpg')}
+               />
+      </View>
+
     </View>
+
+
+
+
+
   );
 }
 
@@ -29,4 +84,83 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  headings:{
+    //margin: "1em 0 0.5em 0",
+    color: '#343434',
+    fontSize: 22,
+    lineHeight: 40,
+    fontWeight: 'normal',
+    textTransform: 'uppercase',
+    fontFamily: 'Orienta',
+    letterSpacing: 1,
+    fontStyle: 'italic',
+
+  },
+    customInput:{
+      borderWidth: 0,
+      borderColor: 'black',
+      borderStyle: 'solid',
+      //WebkitAppearance: 'none',
+      //msAppearance: 'none',
+      //MozAppearance: 'none',
+      //appearance: 'none',
+      backgroundColor: "#f2f2f2",
+      padding: 12,
+      borderRadius: 3,
+      width: 250,
+      //outline: 'none',
+      fontSize: 14,
+      borderBottomWidth: 1,
+      borderBottomColor: 'black'
+      //borderBottom: "1px solid black"
+
+      //alt
+      //width: WIDTH-55,
+      //height: 45,
+      //borderRadius: 25,
+      //fontSize: 16,
+      //paddingLeft: 45,
+      //backgroundColor: 'rgba(0,0,0,0.35)',
+      //color: 'rgba(255,255,255,0.7)',
+      //marginHorizontal:25
+
+
+    },
+  redButton:{
+    alignItems: 'center',
+    //userSelect: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: 6,
+    paddingRight: 16,
+    paddingBottom: 6,
+    paddingLeft: 16,
+    flexShrink: 0,
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 3,
+    borderBottomRightRadius: 3,
+    borderBottomLeftRadius: 3,
+    fontWeight: "500",
+    backgroundColor: 'rgba(235, 87, 87, 0.03)',
+    color: 'rgb(0, 128, 128)',
+    borderWidth: 1,
+    borderColor: 'rgb(0, 128, 128)',
+    borderStyle: 'solid',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowRadius: 2,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 1,
+    width: '100%',
+    marginTop: 6,
+    marginBottom: 12,
+    //cursor: 'pointer'
+  },
+  keyboard: {
+    marginBottom: 100,
+  }
+
+
 });
