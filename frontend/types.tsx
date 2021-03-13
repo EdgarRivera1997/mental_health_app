@@ -8,6 +8,7 @@ export type RootStackParamList = {
   GroupChatList: undefined;
   GroupChatRoom: undefined;
   ProfileSettings: undefined;
+  SignUpScreen: undefined;
   NotFound: undefined;
 };
 

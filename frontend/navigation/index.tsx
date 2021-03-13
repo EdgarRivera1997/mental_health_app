@@ -15,7 +15,7 @@ import ChatCategoriesScreen from "../screens/ChatCategoriesScreen";
 import GroupChatScreen from "../screens/GroupChatScreen";
 import GroupChatRoomScreen from "../screens/GroupChatRoomScreen";
 import ProfileSettingsScreen from "../screens/ProfileSettingsScreen";
-
+import SignUpScreen from "../screens/SignUpScreen";
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -45,6 +45,7 @@ function RootNavigator() {
       <Stack.Screen name="GroupChatList" component={GroupChatScreen} />
       <Stack.Screen name="GroupChatRoom" component={GroupChatRoomScreen} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettingsScreen} />
+      <Stack.Screen name= "SignUpScreen" component={SignUpScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

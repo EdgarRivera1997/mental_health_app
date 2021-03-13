@@ -1,46 +1,62 @@
 import * as React from 'react';
-import {StyleSheet, TextInput, Dimensions, KeyboardAvoidingView, Image} from 'react-native';
+import {StyleSheet,Platform,ScrollView, TextInput, Dimensions, TouchableOpacity, KeyboardAvoidingView, Image} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View , } from '../components/Themed';
+import {useNavigation} from "@react-navigation/native";
 const {width: WIDTH} = Dimensions.get('window')
 
 export default function TabTwoScreen() {
+  const  navigation = useNavigation();
+
+  const onButtonPress = () => {
+    navigation.navigate('SignUpScreen');
+  }
+
+
+
+  // @ts-ignore
   return (
+      <KeyboardAvoidingView
+          style={{flex:1}}
+          behavior="padding"
+          //behavior={Platform.OS=== 'ios' ? 'padding':null}
+          //behavior={Platform.OS ==='ios'? 'padding':null}
+      >
+        <ScrollView
+
+            contentContainerStyle={{flex:1}} bounces={false}>
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
 
-      <KeyboardAvoidingView
-          style={styles.keyboard}
-          behavior={'padding'}
-      >
+
 
       <View>
-        <Text style={styles.headings}>SIGN UP</Text>
+        <Text style={styles.headings}>CREATE AN ACCOUNT</Text>
 
-        <TextInput style={styles.customInput}  placeholder='Email'
-                   placeholderTextColor='rgba(255,255,255,0.7'
-                   underlineColorAndroid='transparent'>
 
-        </TextInput>
-        <TextInput style={styles.customInput} placeholder={'Password'} secureTextEntry={true} placeholderTextColor='rgba(255,255,255,0.7' underlineColorAndroid='transparent' >
-
-        </TextInput>
         <View >
-          <Text style={styles.redButton} onPress={()=>null}>SIGN UP</Text>
+          <TouchableOpacity>
+          <Text style={styles.redButton} onPress={onButtonPress}>SIGN UP</Text>
+          </TouchableOpacity>
         </View>
+
+
 
       </View>
 
       <View>
+
         <Text style={styles.headings}>LOGIN</Text>
         <TextInput style={styles.customInput}  placeholder='Email/Username'
         placeholderTextColor='rgba(255,255,255,0.7'
         underlineColorAndroid='transparent'>
 
+
         </TextInput>
+
         <TextInput style={styles.customInput}
         placeholder={'Password'} secureTextEntry={true} placeholderTextColor='rgba(255,255,255,0.7' underlineColorAndroid='transparent'
         >
@@ -51,17 +67,16 @@ export default function TabTwoScreen() {
         </View>
 
 
+
       </View>
 
 
-      </KeyboardAvoidingView>
-      <View style={styles.container} >
-        <Image source={require('../assets/images/mentalHealthLogo.jpg')}
-               />
-      </View>
+
+
 
     </View>
-
+        </ScrollView>
+      </KeyboardAvoidingView>
 
 
 
@@ -111,9 +126,9 @@ const styles = StyleSheet.create({
       //outline: 'none',
       fontSize: 14,
       borderBottomWidth: 1,
-      borderBottomColor: 'black'
+      borderBottomColor: 'black',
       //borderBottom: "1px solid black"
-
+      marginBottom:15,
       //alt
       //width: WIDTH-55,
       //height: 45,
