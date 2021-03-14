@@ -29,18 +29,18 @@ export default function SignUpScreen(){
 
 
        <Text style={styles.headings}>Enter Your Information</Text>
-            <TextInput style={styles.customInput}  placeholder='Username'
+            <TextInput style={styles.customInput}  placeholder='E-Mail'
                        placeholderTextColor='rgba(255,255,255,0.7'
                        underlineColorAndroid='transparent'>
             </TextInput>
-            <TextInput style={styles.customInput}  placeholder='First Name'
+            <TextInput style={styles.customInput}  placeholder='Password'
                        placeholderTextColor='rgba(255,255,255,0.7'
                        underlineColorAndroid='transparent'
                        secureTextEntry={true}
             >
 
             </TextInput>
-            <TextInput style={styles.customInput}  placeholder='Password'
+            <TextInput style={styles.customInput}  placeholder='First Name'
                       placeholderTextColor='rgba(255,255,255,0.7'
                       underlineColorAndroid='transparent'>
             </TextInput>
