@@ -12,6 +12,7 @@ import {BottomTabParamList, ChatNavigatorParamList, FeedNavigatorParamList, TabT
 import ProfilePicture from "../components/ProfilePicture";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
+import InformationBoardScreen from "../screens/InformationBoardScreen";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 

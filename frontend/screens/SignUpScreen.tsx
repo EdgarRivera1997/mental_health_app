@@ -9,7 +9,7 @@ export default function SignUpScreen(){
     const  navigation = useNavigation();
 
     const onButtonPress = () => {
-        navigation.navigate('ProfileSettings');
+        navigation.navigate('InformationBoardScreen');
     }
     const onButtonPress2 = () => {
         navigation.navigate('TabTwoScreen');

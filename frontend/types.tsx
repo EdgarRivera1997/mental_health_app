@@ -10,6 +10,8 @@ export type RootStackParamList = {
   ProfileSettings: undefined;
   SignUpScreen: undefined;
   NotFound: undefined;
+  InformationBoardScreen: undefined;
+  HelpCenterScreen:undefined;
 };
 
 export type BottomTabParamList = {
