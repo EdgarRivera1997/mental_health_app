@@ -6,7 +6,7 @@ import sessionStore from 'connect-mongo';
 import cookieParser from 'cookie-parser';
 import dbConfig from './config/db.js';
 import middlewareConfig from './config/middlewares.js';
-import { PostRoutes, UserRoutes } from './modules';
+import { PostRoutes, UserRoutes, CommentRoutes } from './modules';
 
 import User from '../server/modules/users/model.js';
 import Message from '../server/modules/chatrooms/messageModel.js';
@@ -21,7 +21,7 @@ dbConfig();
 //Middlewares
 middlewareConfig(app);
 
-app.use('/api', [PostRoutes, UserRoutes]);
+app.use('/api', [PostRoutes, UserRoutes, CommentRoutes]);
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,6 +32,7 @@ app.listen(PORT, err => {
         console.log(`App listen to port: ${PORT}`);
     }
 });
+
 
 //-----------------------------Socket Connection----------------------------------------
 
