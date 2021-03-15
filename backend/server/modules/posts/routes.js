@@ -1,12 +1,8 @@
 import { Router } from 'express';
-//import * as PostController from './controller.js';
 import Post from './model.js';
 import User from '../users/model.js';
 
 const routes = new Router();
-
-// routes.post('/createPost', PostController.createPost);
-// routes.get('/posts', PostController.getAllPosts);
 
 routes.post('/createPost', async (req, res) => {
     if(req.user) {

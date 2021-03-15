@@ -8,7 +8,7 @@ const routes = new Router();
 routes.post('/post/:id/createComment', async (req, res) => {
     if(req.user){
 
-        const postId = Post.findById(req.params.id);
+        const postId = Post.findOne(req.params.id);
         const user = User.findOne(req.user);
 
         const newComment = new Comment({
