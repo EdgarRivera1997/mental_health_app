@@ -4,46 +4,49 @@ import {useNavigation} from '@react-navigation/native';
 
 import {Text, View, } from '../components/Themed';
 
-export default function InformationBoardScreen(){
+export default function PsychologistMenuScreen(){
 
     const  navigation = useNavigation();
 
-        const onButtonPress = () => {
-            navigation.navigate('HelpCenterScreen');
-        }
-        const onButtonPress2 = () => {
-            navigation.navigate('LoginPsychologistScreen');
-        }
+    const onButtonPress = () => {
+        //navigation.navigate('HelpCenterScreen');
+    }
+    const onButtonPress2 = () => {
+        navigation.navigate('LoginPsychologistScreen');
+    }
 
     return(
 
-    <View style={styles.container}>
+        <View style={styles.container}>
 
-           <View>
-           <TouchableOpacity >
-                         <Text style={styles.customButton} onPress={onButtonPress2} >DOCTOR LIST</Text>
-           </TouchableOpacity>
+            <View>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress2} >CHECK SCHEDULES</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                         <Text style={styles.customButton} onPress={onButtonPress} >HELP CENTERS</Text>
-           </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress} >VIDEO CHAT WITH PATIENT</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                 <Text style={styles.customButton} onPress={onButtonPress2} >PHONE NUMBERS</Text>
-           </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress2} >GROUP CHATS</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                <Text style={styles.customButton} onPress={onButtonPress2} >FEEDBACK</Text>
-           </TouchableOpacity>
-           <TouchableOpacity >
-               <Text style={styles.customButton} onPress={onButtonPress2} >GO BACK</Text>
-           </TouchableOpacity>
-
-           </View>
-
-
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress2} >POST MOTIVATIONAL VIDEOS</Text>
+                </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress2} >INFORMATION ABOUT OUR APP</Text>
+                </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPress2} >GO BACK</Text>
+                </TouchableOpacity>
 
             </View>
+
+
+
+        </View>
 
 
 
