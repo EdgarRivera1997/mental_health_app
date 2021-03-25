@@ -59,7 +59,7 @@ export default [{
     }],
     lastMessage: {
         id: 'm4',
-        content: 'Have You seen that video?',
+        content: 'Have You seen that video? It was amazing!',
         createdAt: '2020-09-29T14:48:00.000Z',
     }
 }, {

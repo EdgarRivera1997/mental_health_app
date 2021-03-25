@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     },
     midContainer: {
         justifyContent: "space-around",
+        width: '56%',
     },
     avatar: {
         width: 60,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     lastMessage: {
         fontSize: 16,
         color: 'grey',
-        width: 220,
+        width: '100%',
     },
     time: {
         fontSize: 14,
