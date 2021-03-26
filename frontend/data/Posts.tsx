@@ -22,8 +22,6 @@ const Posts = [
         createdAt: '2021-02-27T12:00:00.000Z',
         content: 'Hey Hey Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         numberOfComments: 4,
-        numberOfRepost: 11,
-        numberOfLikes: 99,
     }, {
         id: 't3',
         user: {
@@ -34,9 +32,9 @@ const Posts = [
         },
         createdAt: '2021-02-27T12:00:00.000Z',
         content: 'Hello World',
+        //video: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+        video: 'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4',
         numberOfComments: 4,
-        numberOfRepost: 11,
-        numberOfLikes: 99,
     }, {
         id: 't4',
         user: {
@@ -48,8 +46,6 @@ const Posts = [
         createdAt: '2021-02-27T12:00:00.000Z',
         content: 'Hey Hey Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         numberOfComments: 4,
-        numberOfRepost: 11,
-        numberOfLikes: 99,
     },
 ]
 

@@ -44,6 +44,7 @@ export type PostType = {
   user: UserType,
   content: string,
   image?: string,
+  video?: string,
   numberOfComments?: number,
 }
 

@@ -10,7 +10,7 @@ const style = StyleSheet.create({
         alignItems: "center",
     },
     number: {
-        marginLeft: 5,
+        marginLeft: 10,
         color: 'grey',
         textAlign: "center",
     },

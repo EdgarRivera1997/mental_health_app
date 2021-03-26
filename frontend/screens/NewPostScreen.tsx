@@ -16,11 +16,13 @@ import {useNavigation} from "@react-navigation/native";
 export default function NewPostScreen() {
     let {post} = useState("");
     let {imageUrl} = useState('');
+    let {videoUrl} = useState('');
     const navigation = useNavigation();
 
     const onPostButton = () => {
         console.log(`Post: ${post} 
-            Image: ${imageUrl}`);
+            Image: ${imageUrl}
+            Video: ${videoUrl}`);
         onCloseButton();
     };
 
@@ -52,6 +54,12 @@ export default function NewPostScreen() {
                         onChangeText={value => imageUrl = value}
                         style={styles.imageInput}
                         placeholder={'Image url (optional)'}
+                    />
+                    <TextInput
+                        value={videoUrl}
+                        onChangeText={value => videoUrl = value}
+                        style={styles.videoInput}
+                        placeholder={'Video url (optional)'}
                     />
                 </View>
             </View>
@@ -95,6 +103,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     imageInput: {
+
+    },
+    videoInput: {
 
     },
 });

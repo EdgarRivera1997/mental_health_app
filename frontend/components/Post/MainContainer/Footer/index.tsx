@@ -9,8 +9,6 @@ export type FooterProps = {
     post: PostType
 }
 
-
-
 const Footer = ({post}: FooterProps) => {
     const navigation = useNavigation();
 

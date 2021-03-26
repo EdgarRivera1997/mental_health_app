@@ -32,6 +32,14 @@ const style =StyleSheet.create({
         borderRadius: 15,
         overflow: "hidden",
     },
+    video: {
+        marginVertical: 10,
+        width: '100%',
+        height: 200,
+        resizeMode: 'cover',
+        borderRadius: 15,
+        overflow: "hidden",
+    },
 })
 
 export default style;
