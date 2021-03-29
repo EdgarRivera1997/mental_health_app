@@ -4,46 +4,61 @@ import {useNavigation} from '@react-navigation/native';
 
 import {Text, View, } from '../components/Themed';
 
-export default function InformationBoardScreen(){
+export default function UserMenuScreen(){
 
     const  navigation = useNavigation();
 
-        const onButtonPress = () => {
-            navigation.navigate('HelpCenterScreen');
-        }
-        const onButtonPress2 = () => {
-            navigation.navigate('UserMenuScreen');
-        }
+    const onButtonPressSchedule = () => {
+        navigation.navigate('FirstScreen');
+    }
+    const onButtonPressVideoChat = () => {
+        //navigation.navigate('LoginPsychologistScreen');
+    }
+    const onButtonPressChats = () => {
+        //navigation.navigate('LoginPsychologistScreen');
+    }
+    const onButtonPressVideo = () => {
+        //navigation.navigate('LoginPsychologistScreen');
+    }
+    const onButtonPressShare = () => {
+        //navigation.navigate('LoginPsychologistScreen');
+    }
+    const onButtonPressBoard = () => {
+        navigation.navigate('InformationBoardScreen');
+    }
 
     return(
 
-    <View style={styles.container}>
+        <View style={styles.container}>
 
-           <View>
-           <TouchableOpacity >
-                         <Text style={styles.customButton} onPress={onButtonPress2} >DOCTOR LIST</Text>
-           </TouchableOpacity>
+            <View>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressSchedule} >SCHEDULE MEETING</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                         <Text style={styles.customButton} onPress={onButtonPress} >HELP CENTERS</Text>
-           </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressVideoChat} >VIDEO CHAT WITH DOCTOR</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                 <Text style={styles.customButton} onPress={onButtonPress2} >PHONE NUMBERS</Text>
-           </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressChats} >GROUP CHATS</Text>
+                </TouchableOpacity>
 
-           <TouchableOpacity >
-                <Text style={styles.customButton} onPress={onButtonPress2} >FEEDBACK</Text>
-           </TouchableOpacity>
-           <TouchableOpacity >
-               <Text style={styles.customButton} onPress={onButtonPress2} >GO BACK</Text>
-           </TouchableOpacity>
-
-           </View>
-
-
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressVideo} >WATCH MOTIVATIONAL VIDEOS</Text>
+                </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressShare} >SHARE YOUR EXPERIENCE</Text>
+                </TouchableOpacity>
+                <TouchableOpacity >
+                    <Text style={styles.customButton} onPress={onButtonPressBoard} >INFORMATION BOARD</Text>
+                </TouchableOpacity>
 
             </View>
+
+
+
+        </View>
 
 
 

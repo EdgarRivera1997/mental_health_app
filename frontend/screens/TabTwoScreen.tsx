@@ -12,6 +12,11 @@ export default function TabTwoScreen() {
   const onButtonPress = () => {
     navigation.navigate('SignUpScreen');
   }
+  
+  const onButtonPress2 = () => {
+    navigation.navigate('UserMenuScreen');
+  }
+
 
 
 
@@ -63,7 +68,7 @@ export default function TabTwoScreen() {
 
         </TextInput>
         <View>
-          <Text style={styles.redButton} onPress={()=>null} >LOGIN</Text>
+          <Text style={styles.redButton} onPress={onButtonPress2} >LOGIN</Text>
         </View>
 
 

@@ -14,6 +14,8 @@ export type RootStackParamList = {
   HelpCenterScreen:undefined;
   LoginPsychologistScreen:undefined;
   PsychologistMenuScreen:undefined;
+  UserMenuScreen:undefined;
+  FirstScreen: undefined;
 };
 
 export type BottomTabParamList = {
