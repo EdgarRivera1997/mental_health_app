@@ -84,8 +84,8 @@ export default function HelpCenterScreen(){
 
     const  navigation = useNavigation();
 
-    const onButtonPress = () => {
-        //navigation.navigate('ProfileSettings');
+   const onButtonPress = () => {
+        navigation.navigate('InformationBoardScreen');
     }
     const onButtonPress2 = () => {
         //navigation.navigate('TabTwoScreen');
@@ -94,6 +94,9 @@ export default function HelpCenterScreen(){
     return(
 
         <View style={styles.container}>
+            <TouchableOpacity >
+                <Text style={styles.customButton} onPress={onButtonPress} >GO BACK</Text>
+            </TouchableOpacity>
 
             <Animated.FlatList
                 numColumns={1}
