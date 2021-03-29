@@ -20,6 +20,8 @@ import InformationBoardScreen from "../screens/InformationBoardScreen";
 import HelpCenterScreen from "../screens/HelpCenterScreen";
 import LoginPsychologistScreen from "../screens/LoginPsychologistScreen";
 import PsychologistMenuScreen from "../screens/PsychologistMenuScreen";
+import UserMenuScreen from "../screens/UserMenuScreen";
+import FirstScreen from "../screens/FirstScreen";
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -54,6 +56,8 @@ function RootNavigator() {
       <Stack.Screen name= "HelpCenterScreen" component={HelpCenterScreen} />
       <Stack.Screen name= "LoginPsychologistScreen" component={LoginPsychologistScreen} />
       <Stack.Screen name= "PsychologistMenuScreen" component={PsychologistMenuScreen} />
+      <Stack.Screen name= "UserMenuScreen" component={UserMenuScreen} />
+        <Stack.Screen name= "FirstScreen" component={FirstScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
