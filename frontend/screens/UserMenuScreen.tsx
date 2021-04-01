@@ -9,7 +9,8 @@ export default function UserMenuScreen(){
     const  navigation = useNavigation();
 
     const onButtonPressSchedule = () => {
-        navigation.navigate('CalendarAgenda');
+        //navigation.navigate('CalendarAgenda');
+        navigation.navigate('DatePickerScreen');
     }
     const onButtonPressVideoChat = () => {
         //navigation.navigate('LoginPsychologistScreen');
