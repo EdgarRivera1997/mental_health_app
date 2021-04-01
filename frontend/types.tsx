@@ -16,6 +16,7 @@ export type RootStackParamList = {
   PsychologistMenuScreen:undefined;
   UserMenuScreen:undefined;
   FirstScreen: undefined;
+  CalendarAgenda: undefined;
 };
 
 export type BottomTabParamList = {
