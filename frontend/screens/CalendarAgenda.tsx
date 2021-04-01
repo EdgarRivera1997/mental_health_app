@@ -42,12 +42,13 @@ const Schedule: React.FC = () => {
                 <Card>
                     <Card.Content>
                         <View
+
                             style={{
                                 flexDirection: 'row',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
                             }}>
-                            <Typography>{item.name}</Typography>
+                            <Text>{item.name}</Text>
                             <Avatar.Text label="J" />
                         </View>
                     </Card.Content>
@@ -61,8 +62,9 @@ const Schedule: React.FC = () => {
             <Agenda
                 items={items}
                 loadItemsForMonth={loadItems}
-                selected={'2017-05-16'}
+                selected={'2021-04-01'}
                 renderItem={renderItem}
+                minDate={'2021-03-31'}
             />
         </View>
     );
