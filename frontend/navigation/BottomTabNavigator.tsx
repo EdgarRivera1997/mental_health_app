@@ -8,7 +8,14 @@ import useColorScheme from '../hooks/useColorScheme';
 import FeedScreen from '../screens/FeedScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import ChatScreen from "../screens/ChatScreen";
-import {BottomTabParamList, ChatNavigatorParamList, FeedNavigatorParamList, TabTwoParamList} from '../types';
+import ScheduleScreen from "../screens/ScheduleScreen";
+import {
+    BottomTabParamList,
+    ChatNavigatorParamList,
+    FeedNavigatorParamList,
+    ScheduleNavigatorParamList,
+    TabTwoParamList
+} from '../types';
 import ProfilePicture from "../components/ProfilePicture";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
@@ -42,6 +49,13 @@ export default function BottomTabNavigator() {
             component={ChatNavigator}
             options={{
                 tabBarIcon: ({ color }) => <TabBarIcon name="chatbox" color={color} />,
+            }}
+        />
+        <BottomTab.Screen
+            name="Schedule"
+            component={ScheduleNavigator}
+            options={{
+                tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
             }}
         />
     </BottomTab.Navigator>
@@ -159,6 +173,53 @@ function ChatNavigator() {
         </ChatStack.Navigator>
     );
 }
+
+const ScheduleStack = createStackNavigator<ScheduleNavigatorParamList>()
+
+function ScheduleNavigator() {
+    const navigation = useNavigation();
+
+    const onProfilePress = () => {
+        navigation.navigate('ProfileSettings');
+    }
+
+    return (
+        <ScheduleStack.Navigator>
+            <ScheduleStack.Screen
+                name="ScheduleScreen"
+                component={ScheduleScreen}
+                options={{
+                    headerRightContainerStyle: {
+                        marginRight: 15,
+                    },
+
+                    headerLeftContainerStyle: {
+                        marginLeft: 15,
+                    },
+
+                    headerTitle: () => (
+                        <MaterialCommunityIcons name={'brain'} size={30} color={Colors.light.tint}/>
+                    ),
+
+                    headerRight: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.containerHeader}>Feel Good</Text>
+                        </View>
+                    ),
+
+                    headerLeft: () => (
+                        <TouchableOpacity onPress={onProfilePress}>
+                            <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                        </TouchableOpacity>
+                    )
+
+                }}
+            />
+        </ScheduleStack.Navigator>
+    );
+}
+
+
 
 const styles = StyleSheet.create({
     container: {
