@@ -9,17 +9,19 @@ import FeedScreen from '../screens/FeedScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import ChatScreen from "../screens/ChatScreen";
 import ScheduleScreen from "../screens/ScheduleScreen";
+import InformationBoardScreen from "../screens/InformationBoardScreen";
 import {
     BottomTabParamList,
     ChatNavigatorParamList,
     FeedNavigatorParamList,
     ScheduleNavigatorParamList,
+    InformationBoardNavigatorParamList,
     TabTwoParamList
 } from '../types';
 import ProfilePicture from "../components/ProfilePicture";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import InformationBoardScreen from "../screens/InformationBoardScreen";
+
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -56,6 +58,13 @@ export default function BottomTabNavigator() {
             component={ScheduleNavigator}
             options={{
                 tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+            }}
+        />
+        <BottomTab.Screen
+            name="Info"
+            component={InformationBoardNavigator}
+            options={{
+                tabBarIcon: ({ color }) => <TabBarIcon name="information-circle-outline" color={color} />,
             }}
         />
     </BottomTab.Navigator>
@@ -219,6 +228,50 @@ function ScheduleNavigator() {
     );
 }
 
+const InformationBoardStack = createStackNavigator<InformationBoardNavigatorParamList>()
+
+function InformationBoardNavigator() {
+    const navigation = useNavigation();
+
+    const onProfilePress = () => {
+        navigation.navigate('ProfileSettings');
+    }
+
+    return (
+        <InformationBoardStack.Navigator>
+            <InformationBoardStack.Screen
+                name="InformationBoardScreen"
+                component={InformationBoardScreen}
+                options={{
+                    headerRightContainerStyle: {
+                        marginRight: 15,
+                    },
+
+                    headerLeftContainerStyle: {
+                        marginLeft: 15,
+                    },
+
+                    headerTitle: () => (
+                        <MaterialCommunityIcons name={'brain'} size={30} color={Colors.light.tint}/>
+                    ),
+
+                    headerRight: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.containerHeader}>Feel Good</Text>
+                        </View>
+                    ),
+
+                    headerLeft: () => (
+                        <TouchableOpacity onPress={onProfilePress}>
+                            <ProfilePicture size={40} image={'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'}/>
+                        </TouchableOpacity>
+                    )
+
+                }}
+            />
+        </InformationBoardStack.Navigator>
+    );
+}
 
 
 const styles = StyleSheet.create({

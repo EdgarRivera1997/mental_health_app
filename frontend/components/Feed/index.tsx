@@ -24,6 +24,7 @@ const Feed = () => {
                 data={posts}
                 renderItem={({item}) => <Post post={item}/>}
                 keyExtractor={(item) => item.id}
+                inverted
             />
         </View>
     );

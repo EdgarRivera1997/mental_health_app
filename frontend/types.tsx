@@ -23,6 +23,7 @@ export type BottomTabParamList = {
   TabTwo: undefined;
   Chat: undefined;
   Schedule: undefined;
+  Info: undefined;
 };
 
 export type FeedNavigatorParamList = {
@@ -35,6 +36,10 @@ export type ChatNavigatorParamList = {
 
 export type ScheduleNavigatorParamList = {
   ScheduleScreen: undefined;
+};
+
+export type InformationBoardNavigatorParamList = {
+  InformationBoardScreen: undefined;
 };
 
 export type TabTwoParamList = {
