@@ -57,7 +57,9 @@ function RootNavigator() {
       <Stack.Screen name= "LoginPsychologistScreen" component={LoginPsychologistScreen} />
       <Stack.Screen name= "PsychologistMenuScreen" component={PsychologistMenuScreen} />
       <Stack.Screen name= "UserMenuScreen" component={UserMenuScreen} />
-      <Stack.Screen name= "FirstScreen" component={FirstScreen} />
+        <Stack.Screen name= "FirstScreen" component={FirstScreen} />
+        <Stack.Screen name= "CalendarAgenda" component={CalendarAgenda} />
+        <Stack.Screen name= "DatePickerScreen" component={DatePickerScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

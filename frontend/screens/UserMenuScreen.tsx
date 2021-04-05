@@ -1,5 +1,5 @@
 import React from 'react';
-import {KeyboardAvoidingView, ScrollView, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {KeyboardAvoidingView, Linking, ScrollView, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {Text, View, } from '../components/Themed';
@@ -9,13 +9,16 @@ export default function UserMenuScreen(){
     const  navigation = useNavigation();
 
     const onButtonPressSchedule = () => {
-        navigation.navigate('FirstScreen');
+        //navigation.navigate('CalendarAgenda');
+        navigation.navigate('DatePickerScreen');
     }
     const onButtonPressVideoChat = () => {
         //navigation.navigate('LoginPsychologistScreen');
+        Linking.openURL("tel:+17874094429");
+        //await?
     }
     const onButtonPressChats = () => {
-        //navigation.navigate('LoginPsychologistScreen');
+        navigation.navigate('FirstScreen');
     }
     const onButtonPressVideo = () => {
         //navigation.navigate('LoginPsychologistScreen');
