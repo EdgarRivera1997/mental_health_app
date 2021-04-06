@@ -48,7 +48,7 @@ export type TabTwoParamList = {
 
 export type UserType = {
   _id: string,
-  name?: string,
+  firstName: string,
   username: string,
   image?: string,
   status?: string,
@@ -66,10 +66,11 @@ export type PostType = {
 }
 
 export type CommentType = {
-  id: string,
+  _id: string,
   createdAt: string,
-  user: UserType,
-  content: string,
+  postedBy: UserType,
+  text: string,
+  postIn: PostType,
 }
 
 export type Message = {

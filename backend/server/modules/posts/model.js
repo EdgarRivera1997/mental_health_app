@@ -15,6 +15,6 @@ const PostSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
     }]
-}, { timestamps: true} );
+}, { timestamps: {createdAt: true, updatedAt: false} } );
 
 export default mongoose.model('Post', PostSchema);
