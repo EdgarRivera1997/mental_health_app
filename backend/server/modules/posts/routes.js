@@ -6,7 +6,6 @@ const routes = new Router();
 
 routes.post('/createPost', async (req, res) => {
     if(req.user) {
-
         const user = await User.findOne(req.user);
 
         const { body } = req.body;

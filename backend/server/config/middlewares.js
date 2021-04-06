@@ -10,10 +10,7 @@ export default app => {
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({extended: false}));
    app.use(morgan('dev'));
-   app.use(cors({
-      origin: "http://localhost:3000",
-      credentials: true,
-   }));
+   app.use(cors());
    app.use(session({
       secret: "secretCode",
       resave: true,
