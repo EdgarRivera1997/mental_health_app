@@ -13,7 +13,7 @@ export type PostProps = {
 
 const Post = ({post}: PostProps) => (
     <View style={styles.container}>
-         <LeftContainer user={post.user}/>
+         <LeftContainer user={post.postedBy}/>
          <MainContainer post={post}/>
     </View>
 )
