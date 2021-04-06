@@ -3,7 +3,7 @@ import {Image, Text, View} from "react-native";
 import { Video } from 'expo-av';
 import {PostType} from "../../../types";
 import styles from "./styles";
-import { Ionicons} from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
 import moment from 'moment';
 
 import Footer from './Footer';
