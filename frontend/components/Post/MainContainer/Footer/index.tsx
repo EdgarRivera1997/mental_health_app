@@ -24,12 +24,7 @@ const Footer = ({post}: FooterProps) => {
         <View style={styles.container}>
             <View style={styles.iconContainer}>
                 <Feather name={'message-circle'} size={20} color={'grey'} onPress={onCommentButton}/>
-                <Text
-                    style={styles.number}
-                    onPress={onNumberOfComments}
-                >
-                    {post.numberOfComments == undefined ? 0 : post.numberOfComments}
-                </Text>
+                <Text style={styles.number} onPress={onNumberOfComments}>{post.comments.length}</Text>
             </View>
         </View>
     )

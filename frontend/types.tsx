@@ -62,7 +62,6 @@ export type PostType = {
   comments: CommentType[],
   image?: string,
   video?: string,
-  numberOfComments?: number,
 }
 
 export type CommentType = {
