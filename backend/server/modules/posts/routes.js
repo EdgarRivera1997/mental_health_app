@@ -5,9 +5,13 @@ import User from '../users/model.js';
 const routes = new Router();
 
 routes.post('/createPost', async (req, res) => {
-    if(req.body) {
-        //req.user
-        const user = await User.findOne(req.user);
+    if(req.user) {
+
+        const user = await User.findOne({username: req.user.username}, function (err, userInfo){
+            if (err) throw err;
+            else
+                return userInfo;
+        });
 
         const { body } = req.body;
         const newPost = new Post({
