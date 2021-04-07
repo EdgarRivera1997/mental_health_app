@@ -7,11 +7,10 @@ import {PostType} from "../../types";
 
 const Feed = () => {
 
-    const [posts, setPosts] = useState<PostType[]>([]);
+    const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const flatList = useRef<FlatList>(null);
-
 
     const fetchPosts = async () => {
         setLoading(true);
@@ -43,7 +42,7 @@ const Feed = () => {
                 inverted
                 // initialScrollIndex={posts.length - 1}
                 // onScrollToIndexFailed={info => {
-                //     const wait = new Promise(resolve => setTimeout(resolve, 1000));
+                //     const wait = new Promise(resolve => setTimeout(resolve, 500));
                 //     wait.then(() => {
                 //         flatList.current?.scrollToIndex({ index: info.index, animated: true });
                 //     });
