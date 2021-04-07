@@ -18,6 +18,7 @@ export type RootStackParamList = {
   FirstScreen: undefined;
   CalendarAgenda: undefined;
   DatePickerScreen:undefined;
+  DateTimePickerScreen: undefined;
 };
 
 export type BottomTabParamList = {
