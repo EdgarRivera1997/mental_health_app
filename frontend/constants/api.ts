@@ -2,7 +2,7 @@ import axios from "axios";
 
 //axios.defaults.baseURL = 'http://localhost:3000/api'; //for Web page
 //axios.defaults.baseURL = 'exp://172.20.10.3:3000/api'; //for mobile device & Web Page
-axios.defaults.baseURL = 'exp://10.0.0.121:3000/api'; //for mobile device & Web Page
+axios.defaults.baseURL = 'http://10.0.0.121:3000/api'; //for mobile device & Web Page
 
 export const getPosts = async () => {
     const response = await axios.get('/posts');
