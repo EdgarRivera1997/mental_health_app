@@ -70,6 +70,12 @@ export default function ProfileSettingsScreen() {
                         placeholder={'San Juan, Puerto Rico'}
                     />
                 </View>
+                <Text style={styles.text}>Age:
+                    <Text style={styles.data}> 21</Text>
+                </Text>
+                <Text style={styles.text}>Gender:
+                    <Text style={styles.data}> Male</Text>
+                </Text>
             </View>
             <Text style={styles.headerText}>*Changeable information</Text>
             <View style={styles.buttonContainer}>
@@ -80,7 +86,6 @@ export default function ProfileSettingsScreen() {
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableOpacity>
             </View>
-
         </SafeAreaView>
     );
 }
