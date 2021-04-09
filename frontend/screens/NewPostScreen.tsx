@@ -23,6 +23,7 @@ export default function NewPostScreen() {
         console.log(`Post: ${post} 
             Image: ${imageUrl}
             Video: ${videoUrl}`);
+
         if(post != null && post != '')
             onCloseButton();
     };
