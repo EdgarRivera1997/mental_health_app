@@ -9,7 +9,7 @@ export const createUser = async (req, res) => {
         if (doc) res.send("Email Already Exists");
         if (!doc) {
 
-            const { firstName, lastName, username, email, phoneNumber, physicalDirection, age, gender } = req.body;
+            const { firstName, lastName, username, email, phoneNumber, physicalAddress, age, gender } = req.body;
             const saltPassword = await Bcrypt.genSalt(10)
             const securePassword = await Bcrypt.hash(req.body.password, saltPassword)
 
@@ -20,7 +20,7 @@ export const createUser = async (req, res) => {
                 email,
                 password: securePassword,
                 phoneNumber,
-                physicalDirection,
+                physicalAddress,
                 age,
                 gender
             })
@@ -28,7 +28,7 @@ export const createUser = async (req, res) => {
             try {
                 //await newUser.save();
                 //res.redirect(`/login`);
-                return res.status(201).json({ user: await newUser.save() });
+                return res.status(201).json(await newUser.save());
             } catch {
                 //res.redirect('/signup')
                 return res.status(404).json({ error: true, message: 'Error with user'})
@@ -54,7 +54,7 @@ export const loginUser = async (req, res, next) => {
 
 export const logoutUser = async (req, res) => {
     req.logout();
-    res.send("You are log out");
+    res.send("You are logged out");
     //res.redirect('/login');
 }
 
@@ -68,7 +68,7 @@ export const getAllUsers = async (req, res) => {
         //     if (err) throw err;
         //     console.log(data);
         // })
-        return res.status(200).json({ post : await User.find({} )});
+        return res.status(200).json(await User.find({} ));
     } catch {
         return res.status(404).json({ error: true, message: 'Error with User'});
     }
@@ -84,12 +84,12 @@ export const updateUser = async (req, res) => {
         user.lastName = req.body.lastName
         user.username = req.body.username
         user.phoneNumber = req.body.phoneNumber
-        user.physicalDirection = req.body.physicalDirection
+        user.physicalAddress = req.body.physicalAddress
         user.age = req.body.age
         user.gender = req.body.gender
 
         //await user.save();
-        return res.status(200).json({ post : await user.save()});
+        return res.status(200).json(await user.save());
         //res.redirect()  to some path
 
     } else {

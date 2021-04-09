@@ -14,7 +14,7 @@ import ProfilePicture from "../components/ProfilePicture";
 import {useNavigation} from "@react-navigation/native";
 
 export default function NewPostScreen() {
-    let {post} = useState("");
+    let {post} = useState('');
     let {imageUrl} = useState('');
     let {videoUrl} = useState('');
     const navigation = useNavigation();
@@ -23,7 +23,8 @@ export default function NewPostScreen() {
         console.log(`Post: ${post} 
             Image: ${imageUrl}
             Video: ${videoUrl}`);
-        onCloseButton();
+        if(post != null && post != '')
+            onCloseButton();
     };
 
     const onCloseButton = () => {

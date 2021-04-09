@@ -29,7 +29,7 @@ const UserSchema = new Schema ({
         type: String,
         required: true,
     },
-    physicalDirection: {
+    physicalAddress: {
         type: String,
         required: true,
     },
@@ -43,6 +43,6 @@ const UserSchema = new Schema ({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }]
-}, { timestamps: true });
+}, { timestamps: {createdAt: true, updatedAt: false} });
 
 export default mongoose.model('User', UserSchema);

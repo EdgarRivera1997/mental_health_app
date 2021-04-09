@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {FlatList, StyleSheet, Text, ImageBackground, KeyboardAvoidingView, SafeAreaView} from "react-native";
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {View} from "../components/Themed";
@@ -9,10 +9,13 @@ import chatRoomData from '../data/Chats';
 import ChatMessage from '../components/ChatMessage'
 import BG from '../assets/images/chatBackground.jpg';
 import InputBox from "../components/InputBox";
+import posts from "../data/Posts";
+
 
 export default function ChatRoomScreen() {
     const navigation = useNavigation();
     const route = useRoute();
+    const flatList = useRef<FlatList>(null);
 
     console.log(route.params)
 
@@ -40,8 +43,14 @@ export default function ChatRoomScreen() {
                         <FlatList
                             data={chatRoomData.messages}
                             renderItem={({item}) => <ChatMessage message={item}/>}
-                            inverted
                             keyExtractor={(item) => item.id}
+                            ref={flatList}
+                            initialScrollIndex={posts.length - 1}
+                            onScrollToIndexFailed={info => {
+                                const wait = new Promise(resolve => setTimeout(resolve, 500));
+                                wait.then(() => {
+                                    flatList.current?.scrollToIndex({ index: info.index, animated: true });
+                                })}}
                         />
                         <InputBox />
                     </ImageBackground>
