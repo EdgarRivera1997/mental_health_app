@@ -12,7 +12,6 @@ const CustomDatePicker =(props)=>{
     const [show,setShow] = useState(false);
     const onChange = (e,selectedDate)=>{
         setDate(moment(selectedDate))
-
     }
 
     const onAndroidChange =(e,selectedDate)=>{
@@ -38,6 +37,8 @@ const CustomDatePicker =(props)=>{
             setShow(false);
     }
 
+
+
     const renderDatePicker = ()=>{
         return(
             <DateTimePicker
@@ -47,6 +48,8 @@ const CustomDatePicker =(props)=>{
                 timeZoneOffsetInMinutes={0}
                 value={new Date(date)}
                 mode="date"
+                //mode = {tmode}
+
                 minimumDate={new Date(moment().format('YYYY-MM-DD'))}
                 maximumDate={new Date(moment().add(5,'years').format('YYYY-MM-DD'))}
                 //minimumDate={new Date(moment().subtract(120,'years').format('YYYY-MM-DD'))}
@@ -56,7 +59,7 @@ const CustomDatePicker =(props)=>{
             >
             </DateTimePicker>
         );
-    }
+    };
 
 
         return (
@@ -65,7 +68,8 @@ const CustomDatePicker =(props)=>{
                 onPress={()=>setShow(true)}
                 >
                 <View>
-                    <Text style={textStyle}>{date.format('MMM-Do-YYYY')}</Text>
+                    <Text style={textStyle}>{date.format('MMM-Do-YYYY hh:mm:ss')}</Text>
+
 
                     {Platform.OS != 'ios'  && show && renderDatePicker()}
 
@@ -107,7 +111,23 @@ const CustomDatePicker =(props)=>{
                                     }}>
                                         <View style={{marginTop: 20}}>
 
-                                            {renderDatePicker()}
+                                            <DateTimePicker
+                                                //isVisible={show}
+                                                //onConfirm={handleConfirm}
+                                                //onCancel={onCancelPress}
+                                                timeZoneOffsetInMinutes={0}
+                                                value={new Date(date)}
+                                                mode="datetime"
+                                                //mode = {tmode}
+
+                                                minimumDate={new Date(moment().format('YYYY-MM-DD'))}
+                                                maximumDate={new Date(moment().add(5,'years').format('YYYY-MM-DD'))}
+                                                //minimumDate={new Date(moment().subtract(120,'years').format('YYYY-MM-DD'))}
+                                                //maximumDate={new Date(moment().format('YYYY-MM-DD'))}
+                                                onChange={Platform.OS=='ios'? onChange : onAndroidChange}
+                                                //17:18
+                                            >
+                                            </DateTimePicker>
 
                                             <TouchableHighlight
                                                 underlayColor={'transparent'}
@@ -151,6 +171,7 @@ const CustomDatePicker =(props)=>{
 CustomDatePicker.defaultProps={
     textStyle:{},
     defaultDate: moment(),
+    //currentMode: 'date',
     onDateChange: ()=>{
 
     }
