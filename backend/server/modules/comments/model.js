@@ -3,7 +3,8 @@ import mongoose, { Schema } from "mongoose";
 const CommentSchema = new Schema({
     text : {
         type: String,
-        required: true
+        required: true,
+        maxlength: 150,
     },
     postIn: {
         type: mongoose.Schema.Types.ObjectId,
@@ -13,6 +14,6 @@ const CommentSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
-}, {timestamps: true});
+}, {timestamps: {createdAt: true, updatedAt: false} });
 
 export default mongoose.model('Comment', CommentSchema);

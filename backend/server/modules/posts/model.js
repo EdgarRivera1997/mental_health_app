@@ -8,13 +8,12 @@ const PostSchema = new Schema({
         maxlength: 150,
     },
     postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: mongoose.Schema.Types.Mixed,
     },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
     }]
-}, { timestamps: true} );
+}, { timestamps: {createdAt: true, updatedAt: false} } );
 
 export default mongoose.model('Post', PostSchema);

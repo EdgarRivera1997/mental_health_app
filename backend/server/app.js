@@ -6,7 +6,7 @@ import sessionStore from 'connect-mongo';
 import cookieParser from 'cookie-parser';
 import dbConfig from './config/db.js';
 import middlewareConfig from './config/middlewares.js';
-import { PostRoutes, UserRoutes, CommentRoutes } from './modules';
+import { PostRoutes, UserRoutes, CommentRoutes, ChatRoomRoutes } from './modules';
 
 import User from '../server/modules/users/model.js';
 import Message from '../server/modules/chatrooms/messageModel.js';

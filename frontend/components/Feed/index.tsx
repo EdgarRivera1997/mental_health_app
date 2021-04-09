@@ -1,32 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { View, FlatList } from "react-native";
-import posts from '../../data/Posts';
+import React, {useState, useEffect, useRef} from "react";
+import {View, FlatList, ScrollView, RefreshControl} from "react-native";
 import Post from "../Post";
-// import { getPosts } from '../../constants/api';
-// import {PostType} from "../../types";
+import { getPosts } from '../../constants/api';
 
 const Feed = () => {
 
-    // const [posts, setPosts] = useState<PostType[]>([]);
-    //
-    // useEffect(() => {
-    //     const fetchPosts = async () => (await getPosts());
-    //     fetchPosts()
-    //         .then((data) => {
-    //             console.log(data)
-    //             setPosts(data)
-    //         })
-    // })
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const flatList = useRef<FlatList>(null);
+
+    const fetchPosts = async () => {
+        setLoading(true);
+        try{
+            const postData = await getPosts();
+            setPosts(postData);
+        } catch (e) {
+            console.log(e);
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchPosts().then();
+    }, [])
 
     return (
-        <View style={{width: '100%'}}>
+        <ScrollView
+            contentContainerStyle={{
+                flexDirection: 'row',
+                alignSelf: 'flex-end',
+                flexGrow: 1
+            }}
+            refreshControl={<RefreshControl refreshing={loading} onRefresh={fetchPosts} />}
+        >
             <FlatList
+                inverted
                 data={posts}
                 renderItem={({item}) => <Post post={item}/>}
-                keyExtractor={(item) => item.id}
-                inverted
+                keyExtractor={(item) => item._id}
+                ref={flatList}
+                refreshing={loading}
+                onRefresh={fetchPosts}
             />
-        </View>
+        </ScrollView>
     );
 };
 
